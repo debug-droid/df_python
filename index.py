@@ -15,3 +15,5 @@ print("Média geral das notas foi: " + str(media_alunos))
 
 maior_media = df["media"].max()
 print("A maior média é: " + str(maior_media))
+
+df.to_csv(r"C:\Users\Diego\Desktop\python\alunos_situacao.csv")
