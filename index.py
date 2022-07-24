@@ -1,13 +1,21 @@
 import pandas as pd
 
 #lendo o arquivo notas_alunos
-df = pd.read_csv(r"C:\Users\Diego\Desktop\python\notas_alunos.csv")
+df = pd.read_csv(r"C:\Users\Diego\Desktop\python_\df_python\notas_alunos.csv")
 
-#inserindo a coluna media
-df.insert(4, 'media', [7.0,6.5,6.5,8.0])
+#calculo da média
+df["media"] = (df["nota_1"]+ df["nota_2"])/2
 
-#inserindo a coluna situacao
-df.insert(5, 'situacao', ["APROVADO","REPROVADO","REPROVADO","APROVADO"])
+#condição para aprovado ou reprovado
+df.loc[df["media"] >= 7, "situacao"] = "APROVADO"
+
+df.loc[df["media"] < 7 , "situacao"] = "REPROVADO"
+
+df.loc[df["faltas"] > 5, "situacao"] = "REPROVADO"
+
+alunos_situacao=df
+
+#imorimindo a tabela
 print(df)
 
 #imprimindo o maior número de faltas
@@ -23,4 +31,4 @@ maior_media = df["media"].max()
 print("A maior média é: " + str(maior_media))
 
 #gerando arquivo alunos_situacao.csv
-df.to_csv(r"C:\Users\Diego\Desktop\python\alunos_situacao.csv")
+df.to_csv(r"C:\Users\Diego\Desktop\python_\df_python\alunos_situacao.csv")
