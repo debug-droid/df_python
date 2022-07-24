@@ -1,5 +1,8 @@
 import pandas as pd
 
+""" Observação: Quando clonar o programa, é necessário que mude 
+o caminho do arquivo na linha 7 e 37. """
+
 #lendo o arquivo notas_alunos
 df = pd.read_csv(r"C:\Users\Diego\Desktop\python_\df_python\notas_alunos.csv")
 
